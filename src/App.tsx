@@ -4,12 +4,15 @@ import {ThemeProvider} from 'styled-components';
 import sizes from './configs/sizes';
 import Themes from './configs/theme';
 import {Home} from './pages';
+import { GeoLocationProvider } from './context/geolocation.context';
 
 const App = () => {
   const theme = useColorScheme();
   return (
-    <ThemeProvider theme={{colors: Themes[theme || 'light'], sizes}}>
-      <Home />
+    <ThemeProvider theme={{colors: Themes[ 'dark'], sizes}}>
+      <GeoLocationProvider>
+       <Home />
+      </GeoLocationProvider>
     </ThemeProvider>
   );
 };

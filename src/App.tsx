@@ -3,21 +3,22 @@ import { StatusBar, useColorScheme } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import sizes from './configs/sizes';
 import Themes from './configs/theme';
-import { Home } from './pages';
+import { Home } from './pages/home';
 import { GeoLocationProvider } from './context/geolocation.context';
 import { palette } from './configs/palette';
-import { WeatherContainer } from './pages/Home/styles';
+import { WeatherProvider } from './context/weather.context';
+
 
 const App = () => {
   const theme = useColorScheme();
   return (
     <ThemeProvider theme={{ colors: Themes[theme || 'light'], sizes }}>
       <StatusBar backgroundColor={palette.primary} />
-      <WeatherContainer>
+      <WeatherProvider>
         <GeoLocationProvider>
           <Home />
         </GeoLocationProvider>
-      </WeatherContainer>
+      </WeatherProvider>
     </ThemeProvider>
   );
 };

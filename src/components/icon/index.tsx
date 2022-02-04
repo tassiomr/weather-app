@@ -5,7 +5,7 @@ import { ThemeContext } from 'styled-components';
 type Props = {
   name: string;
   color?: string;
-  size: 'large' | 'medium' | 'small';
+  size: 'extra-large' | 'large' | 'medium' | 'small';
 };
 
 export const Icon: React.FC<Props> = ({ name, color, size }) => {

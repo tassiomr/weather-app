@@ -11,9 +11,9 @@ export type Sizes = {
     small: number;
   };
   font: {
-    header: string;
-    subtitle: string;
-    paragraph: string;
+    header: number;
+    subtitle: number;
+    paragraph: number;
   };
 };
 
@@ -66,3 +66,5 @@ export type Weather = {
   name: string;
   cod: number;
 };
+
+export type TextType = 'header' | 'subtitle' | 'paragraph'

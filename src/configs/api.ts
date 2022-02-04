@@ -1,7 +1,8 @@
 import axios, { Axios, AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { API_URL } from '@env';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json'
    }

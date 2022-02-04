@@ -6,6 +6,7 @@ export type Theme = {
 
 export type Sizes = {
   icons: {
+    'extra-large': number;
     large: number;
     medium: number;
     small: number;

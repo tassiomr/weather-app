@@ -10,13 +10,13 @@ type Props = {
 };
 
 export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
-  const { colors } = React.useContext(ThemeContext) 
+  const { colors } = React.useContext(ThemeContext);
 
   return (
     <Component>
       <ButtonContainer>
         <TouchableOpacity onPress={onPress}>
-          <Icon name='refresh' size='large' color={colors.accent}  />
+          <Icon name="refresh" size="large" color={colors.accent} />
         </TouchableOpacity>
       </ButtonContainer>
       {isLoading ? <ActivityIndicator size="large" /> : children}

@@ -9,5 +9,9 @@ type Props = {
 };
 
 export const Text: React.FC<Props> = ({ text, textType, testID }) => {
-  return <Component testID={testID} textType={textType}>{text}</Component>;
+  return (
+    <Component testID={testID} textType={textType}>
+      {text}
+    </Component>
+  );
 };

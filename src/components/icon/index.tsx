@@ -15,7 +15,7 @@ export const Icon: React.FC<Props> = ({ name, color, size }) => {
     <MaterialIcons
       name={name}
       color={color || theme.colors.primary}
-      size={theme.sizes.icons[size]}
+      size={theme?.sizes?.icons[size]}
     />
   );
 };

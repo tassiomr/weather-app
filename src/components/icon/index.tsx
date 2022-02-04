@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import * as React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ThemeContext } from 'styled-components';
 
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const Icon: React.FC<Props> = ({ name, color, size }) => {
-  const theme = useContext(ThemeContext);
+  const theme = React.useContext(ThemeContext);
 
   return (
     <MaterialIcons

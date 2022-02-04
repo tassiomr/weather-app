@@ -1,15 +1,16 @@
 import { Theme } from '../typescript/type';
+import { palette } from './palette';
 
 const light: Theme = {
-  background: '#fff',
-  accent: '#000',
-  primary: '#55f244',
+  background: palette.lightBg,
+  accent: palette.lightAccent,
+  primary: palette.primary,
 };
 
 const dark: Theme = {
-  background: '#000',
-  accent: '#fff',
-  primary: '#55f244',
+  background: palette.darkBg,
+  accent: palette.darkAccent,
+  primary: palette.primary,
 };
 
 const colors = {

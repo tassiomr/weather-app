@@ -4,8 +4,9 @@ import { IStyledComponentsProps } from '../../typescript/interface';
 export const Component = styled.View`
   flex: 1;
   width: 100%;
-  alignItems: center;
-  paddingLeft: 8px;
-  paddingRight: 8px;
-  backgroundColor: ${(props: IStyledComponentsProps) => props.theme.colors.background};
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: ${(props: IStyledComponentsProps) =>
+    props.theme.colors.background};
 `;

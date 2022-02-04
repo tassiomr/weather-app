@@ -3,7 +3,7 @@ import { GeoLocationService } from '../services';
 import { GeoLocation } from '../typescript/type';
 
 type GeoLocationContextData = {
-  geoLocation: GeoLocation | null,
+  geoLocation: GeoLocation | null;
   getGeoLocation: () => void;
   getPermission: () => void;
 };
@@ -13,12 +13,14 @@ export const GeoLocationContext = React.createContext<GeoLocationContextData>(
 );
 
 export const GeoLocationProvider: React.FC = ({ children }) => {
-  const [geoLocation, setGeoLocation] = React.useState<GeoLocation  | null>(null);
+  const [geoLocation, setGeoLocation] = React.useState<GeoLocation | null>(
+    null
+  );
 
   async function getPermission() {
     try {
       await GeoLocationService.getPermission();
-    } catch(error) {
+    } catch (error) {
       throw error;
     }
   }
@@ -26,23 +28,24 @@ export const GeoLocationProvider: React.FC = ({ children }) => {
   async function getGeoLocation() {
     try {
       await getPermission();
-      
-      GeoLocationService.getGeoLocation((position) =>  { 
+
+      GeoLocationService.getGeoLocation(position => {
         setGeoLocation({
           lat: position.coords.laitude,
           log: position.coords.longitude,
-        })
-      })
-    } catch(error) {
+        });
+      });
+    } catch (error) {
       throw error;
     }
   }
 
   return (
-    <GeoLocationContext.Provider value={{ geoLocation, getGeoLocation, getPermission }}>
+    <GeoLocationContext.Provider
+      value={{ geoLocation, getGeoLocation, getPermission }}>
       {children}
     </GeoLocationContext.Provider>
-  )
-}
+  );
+};
 
 export const useGeoLocation = () => React.useContext(GeoLocationContext);

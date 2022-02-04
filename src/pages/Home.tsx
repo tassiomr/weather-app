@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Body, Text} from '../components';
+import { Body, Text } from '../components';
 
 export const Home: React.FC = () => {
   return (

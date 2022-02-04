@@ -15,7 +15,7 @@ const sizes: Sizes = {
     large: 12,
     medium: 8,
     small: 4,
-  }
+  },
 };
 
 export default sizes;

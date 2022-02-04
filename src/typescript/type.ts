@@ -19,7 +19,7 @@ export type Sizes = {
     small: number;
     medium: number;
     large: number;
-  }
+  };
 };
 
 export type GeoLocation = {
@@ -72,4 +72,4 @@ export type Weather = {
   cod: number;
 };
 
-export type TextType = 'header' | 'subtitle' | 'paragraph'
+export type TextType = 'header' | 'subtitle' | 'paragraph';

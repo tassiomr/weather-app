@@ -3,7 +3,6 @@ import { ActivityIndicator } from 'react-native';
 import { Component } from './styles';
 
 type Props = {
-  children: React.ReactElement;
   isLoading?: boolean;
 };
 

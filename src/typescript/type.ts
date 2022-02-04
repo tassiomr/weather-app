@@ -17,6 +17,11 @@ export type Sizes = {
   };
 };
 
+export type GeoLocation = {
+  lat: number;
+  log: number;
+}
+
 export type Weather = {
   coord: {
     lon: number;

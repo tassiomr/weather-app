@@ -6,15 +6,18 @@ import Themes from './configs/theme';
 import { Home } from './pages';
 import { GeoLocationProvider } from './context/geolocation.context';
 import { palette } from './configs/palette';
+import { WeatherContainer } from './pages/Home/styles';
 
 const App = () => {
   const theme = useColorScheme();
   return (
     <ThemeProvider theme={{ colors: Themes[theme || 'light'], sizes }}>
       <StatusBar backgroundColor={palette.primary} />
-      <GeoLocationProvider>
-        <Home />
-      </GeoLocationProvider>
+      <WeatherContainer>
+        <GeoLocationProvider>
+          <Home />
+        </GeoLocationProvider>
+      </WeatherContainer>
     </ThemeProvider>
   );
 };

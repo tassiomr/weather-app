@@ -10,7 +10,7 @@ export const Component = styled.View`
   padding-left: 8px;
   padding-right: 8px;
   background-color: ${(props: IStyledComponentsProps) =>
-    props.theme.colors.primary};
+    props.theme?.colors?.primary};
 `;
 
 export const ButtonContainer = styled.View`
@@ -19,4 +19,4 @@ export const ButtonContainer = styled.View`
   top: 0;
   justify-content: flex-end;
   align-items: flex-end;
-`
+`;

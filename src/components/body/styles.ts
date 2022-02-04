@@ -12,3 +12,11 @@ export const Component = styled.View`
   background-color: ${(props: IStyledComponentsProps) =>
     props.theme.colors.primary};
 `;
+
+export const ButtonContainer = styled.View`
+  width: 100%;
+  position: absolute;
+  top: 0;
+  justify-content: flex-end;
+  align-items: flex-end;
+`

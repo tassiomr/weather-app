@@ -4,9 +4,14 @@ import { Component } from './styles';
 
 type Props = {
   text: string;
-  textType: TextType
+  textType: TextType;
+  testID: string;
 };
 
-export const Text: React.FC<Props> = ({ text, textType }) => {
-  return <Component textType={textType}>{text}</Component>;
+export const Text: React.FC<Props> = ({ text, textType, testID }) => {
+  return (
+    <Component testID={testID} textType={textType}>
+      {text}
+    </Component>
+  );
 };

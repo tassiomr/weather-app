@@ -8,7 +8,7 @@ export const HourContainer = styled.View`
   opacity: 0.7;
   align-items: center;
   justify-content: center;
-`
+`;
 
 export const WeatherContainer = styled.View`
   flex-direction: column;
@@ -17,22 +17,23 @@ export const WeatherContainer = styled.View`
   padding: 16px;
   border-radius: 12px;
   align-items: center;
-  background-color: ${(props: IStyledComponentsProps) => props.theme.colors.background}
-`
+  background-color: ${(props: IStyledComponentsProps) =>
+    props.theme?.colors?.background};
+`;
 
 export const CountryWrapper = styled.View`
   flex-direction: row;
   width: 100%;
-`
+`;
 
 export const WeatherWrapper = styled.View`
- flex-direction: row;
- width: 100%;
- padding: 4px;
- justify-content: space-between;
-`
+  flex-direction: row;
+  width: 100%;
+  padding: 4px;
+  justify-content: space-between;
+`;
 
 export const TextWeatherWrapper = styled.View`
- flex-direction: column;
- padding: 4px;
-`
+  flex-direction: column;
+  padding: 4px;
+`;

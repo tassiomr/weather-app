@@ -5,7 +5,7 @@ import { ThemeContext } from 'styled-components';
 type Props = {
   name: string;
   color?: string;
-  size: 'large' | 'medium' | 'small';
+  size: 'extra-large' | 'large' | 'medium' | 'small';
 };
 
 export const Icon: React.FC<Props> = ({ name, color, size }) => {
@@ -15,7 +15,7 @@ export const Icon: React.FC<Props> = ({ name, color, size }) => {
     <MaterialIcons
       name={name}
       color={color || theme.colors.primary}
-      size={theme.sizes.icons[size]}
+      size={theme?.sizes?.icons[size]}
     />
   );
 };

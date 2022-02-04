@@ -6,6 +6,7 @@ export type Theme = {
 
 export type Sizes = {
   icons: {
+    'extra-large': number;
     large: number;
     medium: number;
     small: number;
@@ -19,7 +20,7 @@ export type Sizes = {
     small: number;
     medium: number;
     large: number;
-  }
+  };
 };
 
 export type GeoLocation = {
@@ -72,4 +73,4 @@ export type Weather = {
   cod: number;
 };
 
-export type TextType = 'header' | 'subtitle' | 'paragraph'
+export type TextType = 'header' | 'subtitle' | 'paragraph';

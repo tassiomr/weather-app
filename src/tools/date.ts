@@ -1,12 +1,12 @@
-import { constants } from "../configs/constants";
+import { constants } from '../configs/constants';
 
 export const GetCurrentHour = () => {
   const date = new Date();
   const hour = date.getHours();
   const minute = date.getMinutes();
 
-  return `${hour}:${minute}`
-}
+  return `${hour}:${minute}`;
+};
 
 export const GetCurrentDay = () => {
   const date = new Date();
@@ -15,4 +15,4 @@ export const GetCurrentDay = () => {
   const dayOfMonth = date.getDate();
 
   return `${dayOfWeek} | ${month} ${dayOfMonth}`;
-}
+};

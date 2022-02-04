@@ -15,6 +15,11 @@ export type Sizes = {
     subtitle: number;
     paragraph: number;
   };
+  spaces: {
+    small: number;
+    medium: number;
+    large: number;
+  }
 };
 
 export type GeoLocation = {

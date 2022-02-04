@@ -1,4 +1,4 @@
-import { WeatherService } from '../../src/services';
+import { WeatherService } from '../../../src/services';
 
 describe('Testing Weather Service', () => {
   it('should no pass lat or log in the params', async () => {

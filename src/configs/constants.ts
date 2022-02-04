@@ -34,4 +34,10 @@ export const constants = {
     weatherMinTempText: 'weather-min-temp-text',
     weatherCountryText: 'weather-country-text',
   },
+
+  fragments: {
+    errorPage: {
+      message: ''
+    }
+  }
 };

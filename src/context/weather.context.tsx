@@ -3,9 +3,9 @@ import { WeatherService } from '../services';
 import { Weather } from '../typescript/type';
 
 type WeatherContextData = {
-  weather: Weather | null,
-  isLoading: boolean,
-  getWeather: (lat: number, log: number) => void
+  weather: Weather | null;
+  isLoading: boolean;
+  getWeather: (lat: number, log: number) => void;
 };
 
 export const WeatherContext = React.createContext<WeatherContextData>(
@@ -22,7 +22,7 @@ export const WeatherProvider: React.FC = ({ children }) => {
       const result = await WeatherService.getCurrentWeather(lat, log);
       setWeather(result);
       setIsLoading(true);
-    } catch(error) {
+    } catch (error) {
       setIsLoading(false);
 
       console.log(error);
@@ -33,7 +33,7 @@ export const WeatherProvider: React.FC = ({ children }) => {
     <WeatherContext.Provider value={{ weather, isLoading, getWeather }}>
       {children}
     </WeatherContext.Provider>
-  )
-}
+  );
+};
 
-export const useWeather = React.useContext(WeatherContext);
+export const useWeather = () => React.useContext(WeatherContext);

@@ -1,2 +1,2 @@
-export {Body} from './body'
-export {Text} from './text'
+export { Body } from './body';
+export { Text } from './text';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image } from 'react-native';
-import { Body, Spacer, Text, Icon } from '../../components';
+import { Body, Spacer, Te Icon } from '../../components';
 import { GetCurrentDay, GetCurrentHour } from '../../tools';
 import { HourContainer, WeatherContainer, CountryWrapper, WeatherWrapper, TextWeatherWrapper } from './styles';
 

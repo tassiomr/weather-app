@@ -1,4 +1,5 @@
-import { GetCurrentHour, ResponsiveSize, GetCurrentDay } from "../../src/tools";
+import { constants } from "../../../src/configs/constants";
+import { GetCurrentDay, GetCurrentHour, ResponsiveSize } from "../../../src/tools";
 
 describe('Testing tools', () => {
   describe('Testing ResponsiveSize file', () => {
@@ -22,6 +23,16 @@ describe('Testing tools', () => {
       const currentHour = GetCurrentHour();
     
       expect(`${hour}:${minute}`).toBe(currentHour)
+    })
+
+    it('Should a user get a current date', () => {
+      const date = new Date();
+      const dayOfWeek = constants.days[date.getDay()];
+      const month = constants.months[date.getMonth()];
+      const dayOfMonth = date.getDate();
+
+      const currentDay = GetCurrentDay();
+      expect(`${dayOfWeek} | ${month} ${dayOfMonth}`).toBe(currentDay);
     })
   })
 });

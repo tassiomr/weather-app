@@ -53,6 +53,7 @@ describe('Testing Weather Service', () => {
         },
       })
     );
+
     try {
       await GeoLocationService.getPermission();
     } catch (error) {
@@ -61,4 +62,36 @@ describe('Testing Weather Service', () => {
       );
     }
   });
+
+  it('should get is user not give a permission', () => {
+    const response = GeoLocationService.checkPermission();
+
+    jest.mock(
+      'react-native//Libraries/PermissionsAndroid/PermissionsAndroid',
+      () => ({
+        ...mock,
+        check: function (_) {
+          return false
+        },
+      })
+    );
+
+    expect(response).toBeFalsy();
+  })
+
+  it('should get is user not give a permission', () => {
+    const response = GeoLocationService.checkPermission();
+
+    jest.mock(
+      'react-native//Libraries/PermissionsAndroid/PermissionsAndroid',
+      () => ({
+        ...mock,
+        check: function (_) {
+          return true
+        },
+      })
+    );
+
+    expect(response).toBeTruthy();
+  })
 });

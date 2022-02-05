@@ -2,6 +2,10 @@ import GeoLocation from '@react-native-community/geolocation';
 import { PermissionsAndroid, Platform } from 'react-native';
 
 export const GeoLocationService = {
+  checkPermission: () => {
+    return PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+  },
+
   getPermission: async () => {
     try {
       if (Platform.OS === 'android') {

@@ -9,10 +9,10 @@ export const Home: React.FC = () => {
   const { getGeoLocation, geoLocation } = useGeoLocation();
 
   React.useEffect(() => {
-    if(geoLocation) {
+    if (geoLocation) {
       getWeather(geoLocation.lat, geoLocation.log);
     }
-  }, [geoLocation])
+  }, [geoLocation]);
 
   return (
     <Body isLoading={isLoading} onPress={getGeoLocation}>

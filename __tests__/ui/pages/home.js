@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from '@testing-library/react-native';
+import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { ThemeContext, ThemeProvider } from 'styled-components';
 import { WeatherContext, WeatherProvider } from '../../../src/context/weather.context';
 import colors from '../../../src/configs/theme';
@@ -8,17 +8,7 @@ import { Home } from '../../../src/pages/home'
 import { constants } from '../../../src/configs/constants';
 import { Data } from '../../../__mocks__/data';
 import { GetCurrentDay, GetCurrentHour } from '../../../src/tools';
-
-
-const customRender = (ui, {providerProps, ...renderOptions}) => {
-  return render(
-    <ThemeProvider theme={{ colors: colors.dark, sizes: sizes }}>
-    <WeatherProvider value={providerProps}>
-     {ui}
-    </WeatherProvider>
-  </ThemeProvider>,
-  )
-}
+import { GeoLocationContext } from '../../../src/context/geolocation.context';
 
 describe('Testing integration between Home and Weather Context', () => {
   it('should when wont has a weather', () => {
@@ -37,10 +27,7 @@ describe('Testing integration between Home and Weather Context', () => {
 
   it('should when has a weather', () => {
     const providerProps = { weather: Data, isLoading: false, getWeather: jest.fn }
-    WeatherProvider.value = providerProps;
-
     const  { getByTestId, queryByTestId, toJSON } = render(<WeatherContext.Provider value={providerProps}><Home /></WeatherContext.Provider>);
-
 
     expect(getByTestId(constants.testsId.weatherFragment)).not.toBe(null);
     expect(queryByTestId(constants.testsId.errorFragment)).toBe(null);
@@ -69,5 +56,17 @@ describe('Testing integration between Home and Weather Context', () => {
     expect(minTempText.children[0]).toBe('Today Min Temp: 280.37°');
     expect(maxTempText.children[0]).toBe('Today Max Temp: 284.26°');
     expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should when has a geoLocation', () => {
+    const providerProps = { weather: Data, isLoading: false, getWeather: jest.fn }
+  
+    const { toJSON } = render(
+      <GeoLocationContext.Provider value={{ getGeoLocation: jest.fn, geoLocation: { lat: 1, log: 1}}}>
+          <WeatherContext.Provider value={providerProps}><Home /></WeatherContext.Provider>);
+      </GeoLocationContext.Provider>)
+
+    
+   expect(toJSON()).toMatchSnapshot();
   });
 });

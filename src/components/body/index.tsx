@@ -16,7 +16,7 @@ export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
   return (
     <Component>
       <ButtonContainer>
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity testID='button-refresh' onPress={onPress}>
           <Icon name="refresh" size="large" color={theme?.colors?.accent || Theme.light.accent} />
         </TouchableOpacity>
       </ButtonContainer>

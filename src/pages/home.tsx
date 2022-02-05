@@ -5,12 +5,18 @@ import { useWeather } from '../context/weather.context';
 import { ErrorFragment, WeatherFragment } from '../fragments';
 
 export const Home: React.FC = () => {
-  const { weather } = useWeather();
-  const { getGeoLocation } = useGeoLocation();
+  const { weather, isLoading, getWeather } = useWeather();
+  const { getGeoLocation, geoLocation } = useGeoLocation();
 
-  return <Body isLoading={false} onPress={getGeoLocation}>
-    {
-      !!weather ? <WeatherFragment weather={weather} /> : <ErrorFragment />
+  React.useEffect(() => {
+    if (geoLocation) {
+      getWeather(geoLocation.lat, geoLocation.log);
     }
-  </Body>
+  }, [geoLocation]);
+
+  return (
+    <Body isLoading={isLoading} onPress={getGeoLocation}>
+      {weather ? <WeatherFragment weather={weather} /> : <ErrorFragment />}
+    </Body>
+  );
 };

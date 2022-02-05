@@ -13,12 +13,12 @@ import {
 } from './styles';
 
 type Props = {
-  weather: Weather
-}
+  weather: Weather;
+};
 
 export const WeatherFragment: React.FC<Props> = ({ weather }) => (
   <>
-    <HourContainer>
+    <HourContainer testID={constants.testsId.weatherFragment}>
       <Text
         testID={constants.testsId.weatherHourText}
         text={GetCurrentHour()}
@@ -71,11 +71,12 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
             testID={constants.testsId.weatherMinTempText}
             textType="paragraph"
             text={`Today Min Temp: ${weather.main.temp_min}°`}
-
           />
         </TextWeatherWrapper>
         <Image
-          source={{ uri: `https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}}
+          source={{
+            uri: `https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`,
+          }}
           style={{ width: 150, height: 150 }}
         />
       </WeatherWrapper>

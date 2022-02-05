@@ -6,7 +6,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .ts,.tsx, .js, .jsx"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx"
   },
   "dependencies": {
     "@react-native-community/geolocation": "^2.0.2",

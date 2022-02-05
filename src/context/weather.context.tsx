@@ -24,8 +24,6 @@ export const WeatherProvider: React.FC = ({ children }) => {
       setIsLoading(true);
     } catch (error) {
       setIsLoading(false);
-
-      console.log(error);
     }
   }
 

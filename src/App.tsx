@@ -8,7 +8,6 @@ import { GeoLocationProvider } from './context/geolocation.context';
 import { palette } from './configs/palette';
 import { WeatherProvider } from './context/weather.context';
 
-
 const App = () => {
   const theme = useColorScheme();
   return (

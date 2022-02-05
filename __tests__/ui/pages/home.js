@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { render } from '@testing-library/react-native';
 import { ThemeContext } from 'styled-components';
-import {
-  WeatherContext,
-} from '../../../src/context/weather.context';
+import { WeatherContext } from '../../../src/context/weather.context';
 import colors from '../../../src/configs/theme';
 import sizes from '../../../src/configs/sizes';
 import { Home } from '../../../src/pages/home';
@@ -81,9 +79,8 @@ describe('Testing integration between Home and Weather Context', () => {
         <WeatherContext.Provider value={providerProps}>
           <Home />
         </WeatherContext.Provider>
-        );
       </GeoLocationContext.Provider>
-
+    );
 
     expect(toJSON()).toMatchSnapshot();
   });

@@ -10,4 +10,15 @@ describe('Testing Weather Service', () => {
       );
     }
   });
+
+  it('shoul success request weather', async () => {
+    try {
+      const response = await WeatherService.getCurrentWeather(1, 2);
+      console.log(response);
+    } catch (error) {
+      expect(error.message).toMatch(
+        'Você precisa informar a longitude e a latitude!'
+      );
+    }
+  });
 });

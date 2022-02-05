@@ -16,8 +16,8 @@ describe('Testing Weather fragment', () => {
         <ThemeProvider theme={{ colors: colors, sizes }}>
           {children}
         </ThemeProvider>
-      )
-  });
+      ),
+    });
 
   it('should render correctly', () => {
     const { container } = tree().toJSON();
@@ -51,4 +51,4 @@ describe('Testing Weather fragment', () => {
     expect(minTempText.children[0]).toBe('Today Min Temp: 280.37°');
     expect(maxTempText.children[0]).toBe('Today Max Temp: 284.26°');
   });
-})
+});

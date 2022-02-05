@@ -1,5 +1,9 @@
-import { constants } from "../../../src/configs/constants";
-import { GetCurrentDay, GetCurrentHour, ResponsiveSize } from "../../../src/tools";
+import { constants } from '../../../src/configs/constants';
+import {
+  GetCurrentDay,
+  GetCurrentHour,
+  ResponsiveSize,
+} from '../../../src/tools';
 
 describe('Testing tools', () => {
   describe('Testing ResponsiveSize file', () => {
@@ -7,12 +11,12 @@ describe('Testing tools', () => {
       const number = ResponsiveSize();
       expect(number).toBe(NaN);
     });
-  
+
     it('should when user pass 100 on function, they get 48', () => {
-        const number = ResponsiveSize(100);
-        expect(number).toBe(48);
-    })
-  })
+      const number = ResponsiveSize(100);
+      expect(number).toBe(48);
+    });
+  });
 
   describe('Testing date file tools', () => {
     it('Should a user get a current hour', () => {
@@ -21,9 +25,9 @@ describe('Testing tools', () => {
       const minute = date.getMinutes();
 
       const currentHour = GetCurrentHour();
-    
-      expect(`${hour}:${minute}`).toBe(currentHour)
-    })
+
+      expect(`${hour}:${minute}`).toBe(currentHour);
+    });
 
     it('Should a user get a current date', () => {
       const date = new Date();
@@ -33,6 +37,6 @@ describe('Testing tools', () => {
 
       const currentDay = GetCurrentDay();
       expect(`${dayOfWeek} | ${month} ${dayOfMonth}`).toBe(currentDay);
-    })
-  })
+    });
+  });
 });

@@ -24,6 +24,8 @@ export const constants = {
   ],
 
   testsId: {
+    errorFragment: 'error-fragment', 
+    weatherFragment: 'weather-fragment',
     weatherHourText: 'weather-hour-text',
     weatherDayText: 'weather-day-text',
     weatherTempText: 'weather-temp-text',
@@ -37,7 +39,7 @@ export const constants = {
 
   fragments: {
     errorPage: {
-      message: ''
-    }
-  }
+      message: '',
+    },
+  },
 };

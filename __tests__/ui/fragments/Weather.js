@@ -1,71 +1,31 @@
 import * as React from 'react';
 import { constants } from '../../../src/configs/constants';
 import { WeatherFragment } from '../../../src/fragments';
-import { render  } from '@testing-library/react-native' 
-import { ThemeProvider } from 'styled-components'
+import { render } from '@testing-library/react-native';
+import { ThemeProvider } from 'styled-components';
 
 import colors from '../../../src/configs/theme';
 import sizes from '../../../src/configs/sizes';
 import { GetCurrentDay, GetCurrentHour } from '../../../src/tools';
-
-const Data =
-{
-  "coord": {
-    "lon": -122.08,
-    "lat": 37.39
-  },
-  "weather": [
-    {
-      "id": 800,
-      "main": "Clear",
-      "description": "clear sky",
-      "icon": "01d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 282.55,
-    "feels_like": 281.86,
-    "temp_min": 280.37,
-    "temp_max": 284.26,
-    "pressure": 1023,
-    "humidity": 100
-  },
-  "visibility": 16093,
-  "wind": {
-    "speed": 1.5,
-    "deg": 350
-  },
-  "clouds": {
-    "all": 1
-  },
-  "dt": 1560350645,
-  "sys": {
-    "type": 1,
-    "id": 5122,
-    "message": 0.0139,
-    "country": "US",
-    "sunrise": 1560343627,
-    "sunset": 1560396563
-  },
-  "timezone": -25200,
-  "id": 420006353,
-  "name": "Mountain View",
-  "cod": 200
-  }                         
+import { Data } from '../../../__mocks__/data';
 
 describe('Testing Weather fragment', () => {
-  const tree = () => render(<WeatherFragment weather={Data} />, {
-    wrapper: ({children}) => <ThemeProvider theme={{ colors: colors, sizes }}>{children}</ThemeProvider>
-  })
-  
+  const tree = () =>
+    render(<WeatherFragment weather={Data} />, {
+      wrapper: ({ children }) => (
+        <ThemeProvider theme={{ colors: colors, sizes }}>
+          {children}
+        </ThemeProvider>
+      )
+  });
+
   it('should render correctly', () => {
     const { container } = tree().toJSON();
     expect(container).toMatchSnapshot();
   });
 
   it('should recive an object', async () => {
-    const { getByTestId } = tree()
+    const { getByTestId } = tree();
 
     const hourText = getByTestId(constants.testsId.weatherHourText);
     const dayText = getByTestId(constants.testsId.weatherDayText);
@@ -74,7 +34,7 @@ describe('Testing Weather fragment', () => {
     const weatherText = getByTestId(constants.testsId.weatherText);
     const humityText = getByTestId(constants.testsId.weatherHumityText);
     const feelsText = getByTestId(constants.testsId.weatherFeelsText);
-  
+
     const minTempText = getByTestId(constants.testsId.weatherMinTempText);
     const maxTempText = getByTestId(constants.testsId.weatherMaxTempText);
 

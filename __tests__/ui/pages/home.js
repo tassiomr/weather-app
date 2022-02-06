@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react-native';
-import { ThemeContext } from 'styled-components';
 import { WeatherContext } from '../../../src/context/weather.context';
-import colors from '../../../src/configs/theme';
-import sizes from '../../../src/configs/sizes';
 import { Home } from '../../../src/pages/home';
 import { constants } from '../../../src/configs/constants';
 import { Data } from '../../../__mocks__/data';
@@ -12,13 +9,17 @@ import { GeoLocationContext } from '../../../src/context/geolocation.context';
 
 describe('Testing integration between Home and Weather Context', () => {
   it('should when wont has a weather', () => {
-    const { getByTestId, queryByTestId, toJSON } = render(
-      <ThemeContext.Provider theme={{ colors: colors.dark, sizes: sizes }}>
-        <WeatherContext.Provider value={{ weather: null }}>
-          <Home />
-        </WeatherContext.Provider>
-      </ThemeContext.Provider>
+    const props = { weather: null, isLoading: false, getWeather: jest.fn };
+
+    const Provider = ({ children }) => (
+      <WeatherContext.Provider value={props}>
+        {children}
+      </WeatherContext.Provider>
     );
+
+    const { getByTestId, queryByTestId, toJSON } = render(<Home />, {
+      wrapper: Provider,
+    });
 
     expect(queryByTestId(constants.testsId.weatherFragment)).toBe(null);
     expect(getByTestId(constants.testsId.errorFragment)).not.toBe(null);
@@ -31,11 +32,18 @@ describe('Testing integration between Home and Weather Context', () => {
       isLoading: false,
       getWeather: jest.fn,
     };
-    const { getByTestId, queryByTestId, toJSON } = render(
-      <WeatherContext.Provider value={providerProps}>
-        <Home />
-      </WeatherContext.Provider>
-    );
+
+    const Provider = ({ children }) => {
+      return (
+        <WeatherContext.Provider value={providerProps}>
+          {children}
+        </WeatherContext.Provider>
+      );
+    };
+
+    const { getByTestId, queryByTestId, toJSON } = render(<Home />, {
+      wrapper: Provider,
+    });
 
     expect(getByTestId(constants.testsId.weatherFragment)).not.toBe(null);
     expect(queryByTestId(constants.testsId.errorFragment)).toBe(null);

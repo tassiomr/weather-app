@@ -2,9 +2,11 @@ import styled from 'styled-components/native';
 import sizes from '../../configs/sizes';
 import colors from '../../configs/theme';
 import { IStyledComponentsProps } from '../../typescript/interface';
-import { TextType } from '../../typescript/type';
+import { TextType, TextAlign } from '../../typescript/type';
 
-const Component = styled.Text<IStyledComponentsProps & { texType: TextType }>`
+const Component = styled.Text<
+  IStyledComponentsProps & { texType: TextType; textAlign: TextAlign }
+>`
   color: ${({ theme }: IStyledComponentsProps) => theme.colors.accent};
   font-size: ${({
     theme,
@@ -12,6 +14,7 @@ const Component = styled.Text<IStyledComponentsProps & { texType: TextType }>`
   }: IStyledComponentsProps & { textType: TextType }) =>
     theme.sizes.font[textType]}px;
   font-weight: 700;
+  text-align: ${({ textAlign }: { textAlign: TextAlign }) => textAlign};
 `;
 
 Component.defaultProps = {

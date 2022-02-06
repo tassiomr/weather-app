@@ -19,6 +19,7 @@ export const WeatherContainer = styled.View`
   align-items: center;
   background-color: ${(props: IStyledComponentsProps) =>
     props.theme?.colors?.background};
+  opacity: 0.7;
 `;
 
 export const CountryWrapper = styled.View`

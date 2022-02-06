@@ -1,24 +1,24 @@
 import { constants } from '../configs/constants';
 
 const formatDate = (date?: string) => {
-  if(date) {
+  if (date) {
     return new Date(date);
   } else {
     return new Date();
   }
-}
+};
 export const GetCurrentHour = (date?: string) => {
   let newDate = formatDate(date);
 
   let hour = newDate.getHours().toString();
   let minute = newDate.getMinutes().toString();
-  
-  if(hour.length < 2) {
-    hour = `0${hour}`
+
+  if (hour.length < 2) {
+    hour = `0${hour}`;
   }
 
-  if(minute.length < 2) {
-    minute = `0${minute}`
+  if (minute.length < 2) {
+    minute = `0${minute}`;
   }
 
   return `${hour}:${minute}`;
@@ -30,8 +30,8 @@ export const GetCurrentDay = (date?: string) => {
   const month = constants.months[newDate.getMonth()];
   let dayOfMonth = newDate.getDate().toString();
 
-  if(dayOfMonth.length < 2) {
-    dayOfMonth = `0${dayOfMonth}`
+  if (dayOfMonth.length < 2) {
+    dayOfMonth = `0${dayOfMonth}`;
   }
 
   return `${dayOfWeek} | ${month} ${dayOfMonth}`;

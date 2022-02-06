@@ -5,7 +5,7 @@ import {
   ResponsiveSize,
 } from '../../../src/tools';
 
-const mock = '2021-02-07 09:00'
+const mock = '2021-02-07 09:00';
 
 describe('Testing tools', () => {
   describe('Testing ResponsiveSize file', () => {
@@ -37,8 +37,8 @@ describe('Testing tools', () => {
       const month = constants.months[date.getMonth()];
       let dayOfMonth = date.getDate().toString();
 
-      if(dayOfMonth.length < 2) {
-        dayOfMonth = `0${dayOfMonth}`
+      if (dayOfMonth.length < 2) {
+        dayOfMonth = `0${dayOfMonth}`;
       }
 
       const currentDay = GetCurrentDay();
@@ -51,8 +51,8 @@ describe('Testing tools', () => {
       const month = constants.months[date.getMonth()];
       let dayOfMonth = date.getDate().toString();
 
-      if(dayOfMonth.length < 2) {
-        dayOfMonth = `0${dayOfMonth}`
+      if (dayOfMonth.length < 2) {
+        dayOfMonth = `0${dayOfMonth}`;
       }
 
       const currentDay = GetCurrentDay(mock);
@@ -66,12 +66,12 @@ describe('Testing tools', () => {
 
       const currentHour = GetCurrentHour(mock);
 
-      if(hour.length < 2) {
-        hour = `0${hour}`
+      if (hour.length < 2) {
+        hour = `0${hour}`;
       }
-    
-      if(minute.length < 2) {
-        minute = `0${minute}`
+
+      if (minute.length < 2) {
+        minute = `0${minute}`;
       }
 
       expect(`${hour}:${minute}`).toBe(currentHour);

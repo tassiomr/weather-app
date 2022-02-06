@@ -15,9 +15,7 @@ export const Home: React.FC = () => {
   }, [geoLocation]);
 
   return (
-    <Body
-      isLoading={isLoading}
-      onPress={getGeoLocation}>
+    <Body isLoading={isLoading} onPress={getGeoLocation}>
       {weather ? <WeatherFragment weather={weather} /> : <ErrorFragment />}
     </Body>
   );

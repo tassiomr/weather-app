@@ -11,7 +11,7 @@ type Props = {
 
 export const HourFragment: React.FC<Props> = () => (
   <>
-    <HourContainer testID={constants.testsId.weatherFragment}>
+    <HourContainer>
       <Text
         testID={constants.testsId.weatherHourText}
         text={GetCurrentHour()}

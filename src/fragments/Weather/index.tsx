@@ -20,7 +20,7 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
     <WeatherContainer>
       {weather ? (
         <>
-          <CountryWrapper>
+          <CountryWrapper testID={constants.testsId.weatherFragment}>
             <Icon name="map-marker" size="medium" color="blue" />
             <Text
               testID={constants.testsId.weatherCountryText}
@@ -75,7 +75,7 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
           <Text
             textType="paragraph"
             textAlign="center"
-            testID="no-permission-text"
+            testID="unavailable-text"
             text="Service unavailable!"
           />
         </Unavailable>

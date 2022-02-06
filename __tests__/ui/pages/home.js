@@ -22,7 +22,7 @@ describe('Testing integration between Home and Weather Context', () => {
     });
 
     expect(queryByTestId(constants.testsId.weatherFragment)).toBe(null);
-    expect(getByTestId(constants.testsId.errorFragment)).not.toBe(null);
+    expect(getByTestId(constants.testsId.noPermission)).not.toBe(null);
     expect(toJSON()).toMatchSnapshot();
   });
 
@@ -46,7 +46,7 @@ describe('Testing integration between Home and Weather Context', () => {
     });
 
     expect(getByTestId(constants.testsId.weatherFragment)).not.toBe(null);
-    expect(queryByTestId(constants.testsId.errorFragment)).toBe(null);
+    expect(queryByTestId(constants.testsId.noPermission)).toBe(null);
 
     const hourText = getByTestId(constants.testsId.weatherHourText);
     const dayText = getByTestId(constants.testsId.weatherDayText);

@@ -24,7 +24,7 @@ export const constants = {
   ],
 
   testsId: {
-    errorFragment: 'error-fragment',
+    noPermission: 'no-permission-fragment',
     weatherFragment: 'weather-fragment',
     weatherHourText: 'weather-hour-text',
     weatherDayText: 'weather-day-text',

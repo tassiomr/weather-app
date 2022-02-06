@@ -23,8 +23,17 @@ describe('Testing tools', () => {
   describe('Testing date file tools', () => {
     it('Should a user get a current hour', () => {
       const date = new Date();
-      const hour = date.getHours();
-      const minute = date.getMinutes();
+      let hour = date.getHours().toString();
+      let minute = date.getMinutes().toString();
+
+      if (hour.length < 2) {
+        hour = `0${hour}`;
+      }
+
+      if (minute.length < 2) {
+        minute = `0${minute}`;
+      }
+
 
       const currentHour = GetCurrentHour();
 

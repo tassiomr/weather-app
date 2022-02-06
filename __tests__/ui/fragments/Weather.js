@@ -6,7 +6,6 @@ import { ThemeProvider } from 'styled-components';
 
 import colors from '../../../src/configs/theme';
 import sizes from '../../../src/configs/sizes';
-import { GetCurrentDay, GetCurrentHour } from '../../../src/tools';
 import { Data } from '../../../__mocks__/data';
 
 describe('Testing Weather fragment', () => {
@@ -27,8 +26,6 @@ describe('Testing Weather fragment', () => {
   it('should recive an object', async () => {
     const { getByTestId } = tree();
 
-    const hourText = getByTestId(constants.testsId.weatherHourText);
-    const dayText = getByTestId(constants.testsId.weatherDayText);
     const countryText = getByTestId(constants.testsId.weatherCountryText);
     const tempText = getByTestId(constants.testsId.weatherTempText);
     const weatherText = getByTestId(constants.testsId.weatherText);
@@ -38,11 +35,6 @@ describe('Testing Weather fragment', () => {
     const minTempText = getByTestId(constants.testsId.weatherMinTempText);
     const maxTempText = getByTestId(constants.testsId.weatherMaxTempText);
 
-    const hour = GetCurrentHour();
-    const day = GetCurrentDay();
-
-    expect(hourText.children[0]).toBe(hour);
-    expect(dayText.children[0]).toBe(day);
     expect(countryText.children[0]).toBe('Mountain View - US');
     expect(tempText.children[0]).toBe('283°');
     expect(weatherText.children[0]).toBe('Clear');

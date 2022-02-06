@@ -9,8 +9,8 @@ import {
 } from '../fragments';
 
 export const Home: React.FC = () => {
-  const { weather, isLoading, getWeather } = useWeather();
-  const { getGeoLocation, geoLocation } = useGeoLocation();
+  const { weather, isLoading: weatherLoading, getWeather } = useWeather();
+  const { getGeoLocation, isLoading: geoLocationLoading, geoLocation, hasPermission } = useGeoLocation();
 
   React.useEffect(() => {
     if (geoLocation) {
@@ -18,10 +18,14 @@ export const Home: React.FC = () => {
     }
   }, [geoLocation]);
 
+  React.useEffect(() => {
+    getGeoLocation();
+  }, [])
+
   return (
-    <Body isLoading={isLoading} onPress={getGeoLocation}>
+    <Body isLoading={weatherLoading || geoLocationLoading} onPress={getGeoLocation}>
       <HourFragment />
-      {weather ? (
+      {hasPermission ? (
         <WeatherFragment weather={weather} />
       ) : (
         <NoPermissionFragment />

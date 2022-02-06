@@ -6,6 +6,8 @@ type GeoLocationContextData = {
   geoLocation: GeoLocation | null;
   getGeoLocation: () => void;
   getPermission: () => void;
+  isLoading: boolean;
+  hasPermission: boolean;
 };
 
 export const GeoLocationContext = React.createContext<GeoLocationContextData>(
@@ -17,9 +19,14 @@ export const GeoLocationProvider: React.FC = ({ children }) => {
     null
   );
 
+  const [isLoading, setLoading] = React.useState<boolean>(false);
+  const [hasPermission, setPermission] = React.useState<boolean>(false);
+
   async function getPermission() {
     try {
-      await GeoLocationService.getPermission();
+      const permission = await GeoLocationService.getPermission();
+
+      setPermission(permission);
     } catch (error) {
       throw error;
     }
@@ -27,6 +34,7 @@ export const GeoLocationProvider: React.FC = ({ children }) => {
 
   async function getGeoLocation() {
     try {
+      setLoading(true);
       await getPermission();
 
       GeoLocationService.getGeoLocation(position => {
@@ -35,14 +43,18 @@ export const GeoLocationProvider: React.FC = ({ children }) => {
           log: position.coords.longitude,
         });
       });
+
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
+
       throw error;
     }
   }
 
   return (
     <GeoLocationContext.Provider
-      value={{ geoLocation, getGeoLocation, getPermission }}>
+      value={{ geoLocation, getGeoLocation, getPermission, isLoading, hasPermission }}>
       {children}
     </GeoLocationContext.Provider>
   );

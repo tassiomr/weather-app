@@ -10,11 +10,17 @@ import { GeoLocationContext } from '../../../src/context/geolocation.context';
 describe('Testing integration between Home and Weather Context', () => {
   it('should when wont has a weather', () => {
     const props = { weather: null, isLoading: false, getWeather: jest.fn };
+    const locationProps = {
+      getGeoLocation: jest.fn,
+    };
 
     const Provider = ({ children }) => (
-      <WeatherContext.Provider value={props}>
-        {children}
-      </WeatherContext.Provider>
+      <GeoLocationContext.Provider value={locationProps}>
+        <WeatherContext.Provider value={props}>
+          {children}
+        </WeatherContext.Provider>
+      </GeoLocationContext.Provider>
+
     );
 
     const { getByTestId, queryByTestId, toJSON } = render(<Home />, {
@@ -33,11 +39,18 @@ describe('Testing integration between Home and Weather Context', () => {
       getWeather: jest.fn,
     };
 
+    const locationProps = {
+      getGeoLocation: jest.fn,
+      hasPermission: true,
+    };
+
     const Provider = ({ children }) => {
       return (
-        <WeatherContext.Provider value={providerProps}>
-          {children}
-        </WeatherContext.Provider>
+        <GeoLocationContext.Provider value={locationProps}>
+          <WeatherContext.Provider value={providerProps}>
+            {children}
+          </WeatherContext.Provider>
+        </GeoLocationContext.Provider>
       );
     };
 

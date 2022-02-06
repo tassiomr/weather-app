@@ -8,7 +8,7 @@ export const GeoLocationService = {
     );
   },
 
-  getPermission: async () => {
+  getPermission: async () : Promise<boolean> => {
     try {
       if (Platform.OS === 'android') {
         const resp = await PermissionsAndroid.request(
@@ -25,7 +25,9 @@ export const GeoLocationService = {
         if (resp !== PermissionsAndroid.RESULTS.GRANTED) {
           throw 'Permissão negada! Para acessar as funcionalidades, vá até as configurações e autorize o uso da localização!';
         }
+
       }
+      return GeoLocationService.checkPermission();
     } catch (error) {
       throw error;
     }

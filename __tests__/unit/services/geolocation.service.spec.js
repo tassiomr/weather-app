@@ -79,7 +79,7 @@ describe('Testing Weather Service', () => {
     expect(response).toBeFalsy();
   });
 
-  it('should get is user not give a permission', () => {
+  it('should get is user give a permission', () => {
     const response = GeoLocationService.checkPermission();
 
     jest.mock(

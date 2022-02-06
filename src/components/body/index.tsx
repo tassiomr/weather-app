@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { ActivityIndicator, TouchableOpacity } from 'react-native';
+import {
+  ActivityIndicator,
+  TouchableOpacity,
+  ImageBackground,
+  useColorScheme,
+} from 'react-native';
 import { ThemeContext } from 'styled-components';
 import { Icon } from '..';
 import Theme from '../../configs/theme';
@@ -12,19 +17,23 @@ type Props = {
 
 export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
   const theme = React.useContext(ThemeContext);
+  const [url, setUrl] = React.useState();
+  const day = useColorScheme();
 
   return (
-    <Component>
-      {isLoading ? <ActivityIndicator size="large" /> : children}
-      <ButtonContainer>
-        <TouchableOpacity testID="button-refresh" onPress={onPress}>
-          <Icon
-            name="refresh"
-            size="large"
-            color={theme?.colors?.accent || Theme.light.accent}
-          />
-        </TouchableOpacity>
-      </ButtonContainer>
-    </Component>
+    <ImageBackground source={require('../../img/bg.jpg')} style={{ flex: 1 }}>
+      <Component>
+        {isLoading ? <ActivityIndicator size="large" /> : children}
+        <ButtonContainer>
+          <TouchableOpacity testID="button-refresh" onPress={onPress}>
+            <Icon
+              name="refresh"
+              size="large"
+              color={theme?.colors?.accent || Theme.light.accent}
+            />
+          </TouchableOpacity>
+        </ButtonContainer>
+      </Component>
+    </ImageBackground>
   );
 };

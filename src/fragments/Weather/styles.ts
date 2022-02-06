@@ -38,3 +38,10 @@ export const TextWeatherWrapper = styled.View`
   flex-direction: column;
   padding: 4px;
 `;
+
+export const Unavailable = styled.View`
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;

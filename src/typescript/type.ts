@@ -4,6 +4,8 @@ export type Theme = {
   primary: string;
 };
 
+export type TextAlign = 'center' | 'left' | 'right';
+
 export type Sizes = {
   icons: {
     'extra-large': number;

@@ -44,12 +44,12 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
               <Text
                 testID={constants.testsId.weatherHumityText}
                 textType="paragraph"
-                text={`${constants.fragments.weather.humidity} ${weather.main.humidity}%`}
+                text={`${constants.fragments.weather.humidity}${weather.main.humidity}%`}
               />
               <Text
                 testID={constants.testsId.weatherFeelsText}
                 textType="paragraph"
-                text={`${constants.fragments.weather.humidity}${weather.main.feels_like.toFixed(0)}°`}
+                text={`${constants.fragments.weather.feelsLike}${weather.main.feels_like.toFixed(0)}°`}
               />
               <Text
                 testID={constants.testsId.weatherMaxTempText}

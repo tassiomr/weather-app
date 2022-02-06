@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { TouchableOpacity, ImageBackground } from 'react-native';
+import { ImageBackground } from 'react-native';
 import { ThemeContext } from 'styled-components';
 import { Icon } from '..';
 import Theme from '../../configs/theme';
 import { Loading } from '../loading';
-import { Component, ButtonContainer } from './styles';
+import { Component, ButtonContainer, Button } from './styles';
 
 type Props = {
   isLoading?: boolean;
@@ -19,13 +19,13 @@ export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
       <Component>
         {isLoading ? <Loading /> : children}
         <ButtonContainer>
-          <TouchableOpacity testID="button-refresh" onPress={onPress}>
+          <Button testID="button-refresh" onPress={onPress}>
             <Icon
-              name="refresh"
+              name="cloud-refresh"
               size="large"
               color={theme?.colors?.accent || Theme.light.accent}
             />
-          </TouchableOpacity>
+          </Button>
         </ButtonContainer>
       </Component>
     </ImageBackground>

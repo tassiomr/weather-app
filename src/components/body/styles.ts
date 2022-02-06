@@ -17,3 +17,7 @@ export const ButtonContainer = styled.View`
   justify-content: flex-end;
   align-items: flex-end;
 `;
+
+export const Button = styled.TouchableOpacity`
+  padding: 16px;
+`;

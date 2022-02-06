@@ -45,7 +45,7 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
           <Text
             testID={constants.testsId.weatherTempText}
             textType="subtitle"
-            text={`${weather.main.temp}°`}
+            text={`${weather.main.temp.toFixed(0)}°`}
           />
           <Text
             testID={constants.testsId.weatherText}
@@ -60,17 +60,17 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
           <Text
             testID={constants.testsId.weatherFeelsText}
             textType="paragraph"
-            text={`Feels like: ${weather.main.feels_like}°`}
+            text={`Feels like: ${weather.main.feels_like.toFixed(0)}°`}
           />
           <Text
             testID={constants.testsId.weatherMaxTempText}
             textType="paragraph"
-            text={`Today Max Temp: ${weather.main.temp_max}°`}
+            text={`Today Max Temp: ${weather.main.temp_max.toFixed(0)}°`}
           />
           <Text
             testID={constants.testsId.weatherMinTempText}
             textType="paragraph"
-            text={`Today Min Temp: ${weather.main.temp_min}°`}
+            text={`Today Min Temp: ${weather.main.temp_min.toFixed(0)}°`}
           />
         </TextWeatherWrapper>
         <Image

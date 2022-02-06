@@ -15,6 +15,7 @@ export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
 
   return (
     <Component>
+      {isLoading ? <ActivityIndicator size="large" /> : children}
       <ButtonContainer>
         <TouchableOpacity testID="button-refresh" onPress={onPress}>
           <Icon
@@ -24,7 +25,6 @@ export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
           />
         </TouchableOpacity>
       </ButtonContainer>
-      {isLoading ? <ActivityIndicator size="large" /> : children}
     </Component>
   );
 };

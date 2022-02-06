@@ -19,9 +19,11 @@ export const WeatherProvider: React.FC = ({ children }) => {
   async function getWeather(lat: number, log: number) {
     try {
       setIsLoading(true);
+      console.log(lat, log);
       const result = await WeatherService.getCurrentWeather(lat, log);
+      console.log(result);
       setWeather(result);
-      setIsLoading(true);
+      setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
     }

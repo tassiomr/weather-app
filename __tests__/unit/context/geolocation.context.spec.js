@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 import {
-  GeoLocationContext,
   GeoLocationProvider,
   useGeoLocation,
 } from '../../../src/context/geolocation.context';
@@ -12,16 +11,7 @@ describe('Testing geolocation context', () => {
     return <GeoLocationProvider>{children}</GeoLocationProvider>;
   };
 
-  it('should functions on provider', async () => {
-    jest.mock(
-      '../../../node_modules/@react-native-community/geolocation/js',
-      () => ({
-        getCurrentPosition: function () {
-          throw 'Error to get current function';
-        },
-      })
-    );
-
+  it('should test functions on provider', async () => {
     const TestingProvider = () => {
       const { getGeoLocation } = useGeoLocation();
 
@@ -34,15 +24,12 @@ describe('Testing geolocation context', () => {
       );
     };
 
-    const { getByTestId, rerender } = render(<TestingProvider />, {
+    const { getByTestId } = render(<TestingProvider />, {
       wrapper: Provider,
     });
     const button = getByTestId('button-test-case');
 
-    rerender(<TestingProvider />, { wrapper: Provider });
-
     waitFor(() => fireEvent.press(button));
-
     expect(button).not.toBe(null);
   });
 });

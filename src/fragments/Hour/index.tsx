@@ -5,11 +5,7 @@ import { GetCurrentDay, GetCurrentHour } from '../../tools';
 import { Weather } from '../../typescript/type';
 import { HourContainer } from './styles';
 
-type Props = {
-  weather: Weather;
-};
-
-export const HourFragment: React.FC<Props> = () => (
+export const HourFragment: React.FC = () => (
   <>
     <HourContainer>
       <Text

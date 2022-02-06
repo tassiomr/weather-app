@@ -12,7 +12,7 @@ import {
 } from './styles';
 
 type Props = {
-  weather: Weather;
+  weather: Weather | null;
 };
 
 export const WeatherFragment: React.FC<Props> = ({ weather }) => (

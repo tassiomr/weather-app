@@ -44,11 +44,11 @@ describe('Testing Weather fragment', () => {
     expect(hourText.children[0]).toBe(hour);
     expect(dayText.children[0]).toBe(day);
     expect(countryText.children[0]).toBe('Mountain View - US');
-    expect(tempText.children[0]).toBe('282.55°');
+    expect(tempText.children[0]).toBe('283°');
     expect(weatherText.children[0]).toBe('Clear');
     expect(humityText.children[0]).toBe('Humidity: 100%');
-    expect(feelsText.children[0]).toBe('Feels like: 281.86°');
-    expect(minTempText.children[0]).toBe('Today Min Temp: 280.37°');
-    expect(maxTempText.children[0]).toBe('Today Max Temp: 284.26°');
+    expect(feelsText.children[0]).toBe('Feels like: 282°');
+    expect(minTempText.children[0]).toBe('Today Min Temp: 280°');
+    expect(maxTempText.children[0]).toBe('Today Max Temp: 284°');
   });
 });

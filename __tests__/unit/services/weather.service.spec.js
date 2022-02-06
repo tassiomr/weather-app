@@ -13,7 +13,7 @@ describe('Testing Weather Service', () => {
 
   it('shoul success request weather', async () => {
     try {
-      const response = await WeatherService.getCurrentWeather(1, 2);
+      await WeatherService.getCurrentWeather(1, 2);
     } catch (error) {
       expect(error.message).toMatch(
         'Você precisa informar a longitude e a latitude!'

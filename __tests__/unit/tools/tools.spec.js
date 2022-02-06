@@ -5,6 +5,8 @@ import {
   ResponsiveSize,
 } from '../../../src/tools';
 
+const mock = '2021-02-07 09:00'
+
 describe('Testing tools', () => {
   describe('Testing ResponsiveSize file', () => {
     it('should when user no pass value get an error', () => {
@@ -33,10 +35,46 @@ describe('Testing tools', () => {
       const date = new Date();
       const dayOfWeek = constants.days[date.getDay()];
       const month = constants.months[date.getMonth()];
-      const dayOfMonth = date.getDate();
+      let dayOfMonth = date.getDate().toString();
+
+      if(dayOfMonth.length < 2) {
+        dayOfMonth = `0${dayOfMonth}`
+      }
 
       const currentDay = GetCurrentDay();
       expect(`${dayOfWeek} | ${month} ${dayOfMonth}`).toBe(currentDay);
+    });
+
+    it('Should a user get a date with lenght = 1', () => {
+      const date = new Date(mock);
+      const dayOfWeek = constants.days[date.getDay()];
+      const month = constants.months[date.getMonth()];
+      let dayOfMonth = date.getDate().toString();
+
+      if(dayOfMonth.length < 2) {
+        dayOfMonth = `0${dayOfMonth}`
+      }
+
+      const currentDay = GetCurrentDay(mock);
+      expect(`${dayOfWeek} | ${month} ${dayOfMonth}`).toBe(currentDay);
+    });
+
+    it('Should a user get a hour with lenght = 1', () => {
+      const date = new Date(mock);
+      let hour = date.getHours().toString();
+      let minute = date.getMinutes().toString();
+
+      const currentHour = GetCurrentHour(mock);
+
+      if(hour.length < 2) {
+        hour = `0${hour}`
+      }
+    
+      if(minute.length < 2) {
+        minute = `0${minute}`
+      }
+
+      expect(`${hour}:${minute}`).toBe(currentHour);
     });
   });
 });

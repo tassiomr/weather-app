@@ -5,7 +5,7 @@ const Geolocation = {
         error('Get an error');
       }
 
-      callback({ lat: 1, log: 2 });
+      callback({ coords: { latitude: 1, longetude: 2 } });
     } catch (e) {
       throw e;
     }

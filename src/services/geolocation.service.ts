@@ -3,7 +3,9 @@ import { PermissionsAndroid, Platform } from 'react-native';
 
 export const GeoLocationService = {
   checkPermission: () => {
-    return PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+    return PermissionsAndroid.check(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+    );
   },
 
   getPermission: async () => {

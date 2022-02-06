@@ -31,7 +31,7 @@ export const GeoLocationProvider: React.FC = ({ children }) => {
 
       GeoLocationService.getGeoLocation(position => {
         setGeoLocation({
-          lat: position.coords.laitude,
+          lat: position.coords.latitude,
           log: position.coords.longitude,
         });
       });

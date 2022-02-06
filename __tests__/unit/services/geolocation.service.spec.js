@@ -23,7 +23,7 @@ describe('Testing Weather Service', () => {
       },
       error => error
     );
-    expect(geo).toStrictEqual({ lat: 1, log: 2 });
+    expect(geo).toStrictEqual({ coords: { latitude: 1, longetude: 2 } });
   });
 
   it('should get an error', () => {
@@ -71,15 +71,15 @@ describe('Testing Weather Service', () => {
       () => ({
         ...mock,
         check: function (_) {
-          return false
+          return false;
         },
       })
     );
 
     expect(response).toBeFalsy();
-  })
+  });
 
-  it('should get is user not give a permission', () => {
+  it('should get is user give a permission', () => {
     const response = GeoLocationService.checkPermission();
 
     jest.mock(
@@ -87,11 +87,11 @@ describe('Testing Weather Service', () => {
       () => ({
         ...mock,
         check: function (_) {
-          return true
+          return true;
         },
       })
     );
 
     expect(response).toBeTruthy();
-  })
+  });
 });

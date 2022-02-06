@@ -56,7 +56,6 @@ describe('Testing tools', () => {
       }
 
       const currentDay = GetCurrentDay(mock);
-      console.log(`${dayOfWeek} | ${month} ${dayOfMonth}`, currentDay)
       expect(`${dayOfWeek} | ${month} ${dayOfMonth}`).toBe(currentDay);
     });
 

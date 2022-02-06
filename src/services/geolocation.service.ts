@@ -1,5 +1,6 @@
 import GeoLocation from '@react-native-community/geolocation';
 import { PermissionsAndroid, Platform } from 'react-native';
+import { constants } from '../configs/constants';
 
 export const GeoLocationService = {
   checkPermission: () => {
@@ -13,17 +14,9 @@ export const GeoLocationService = {
       if (Platform.OS === 'android') {
         const resp = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            title: 'Permissão de acesso a sua localização',
-            message:
-              'Este app precisa da localização para te mostar o clima com base na sua posição!',
-            buttonNeutral: 'Pergunte-me depois',
-            buttonNegative: 'Não',
-            buttonPositive: 'Sim',
-          }
         );
         if (resp !== PermissionsAndroid.RESULTS.GRANTED) {
-          throw 'Permissão negada! Para acessar as funcionalidades, vá até as configurações e autorize o uso da localização!';
+          throw constants.services.geolocation.error;
         }
 
       }

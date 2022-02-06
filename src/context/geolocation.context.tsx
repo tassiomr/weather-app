@@ -19,7 +19,7 @@ export const GeoLocationProvider: React.FC = ({ children }) => {
     null
   );
 
-  const [isLoading, setLoading] = React.useState<boolean>(false);
+  const [isLoading, setLoading] = React.useState<boolean>(true);
   const [hasPermission, setPermission] = React.useState<boolean>(false);
 
   async function getPermission() {

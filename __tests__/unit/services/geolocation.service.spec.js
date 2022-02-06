@@ -1,3 +1,4 @@
+import { constants } from '../../../src/configs/constants';
 import { GeoLocationService } from '../../../src/services';
 
 const mock = {
@@ -57,9 +58,7 @@ describe('Testing Weather Service', () => {
     try {
       await GeoLocationService.getPermission();
     } catch (error) {
-      expect(error).toBe(
-        'Permissão negada! Para acessar as funcionalidades, vá até as configurações e autorize o uso da localização!'
-      );
+      expect(error).toBe(constants.services.geolocation.error);
     }
   });
 

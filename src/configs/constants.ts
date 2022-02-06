@@ -24,6 +24,7 @@ export const constants = {
   ],
 
   testsId: {
+    unavailable: "unavailable-text",
     noPermission: 'no-permission-fragment',
     weatherFragment: 'weather-fragment',
     weatherHourText: 'weather-hour-text',
@@ -37,9 +38,22 @@ export const constants = {
     weatherCountryText: 'weather-country-text',
   },
 
+  services: {
+    geolocation: {
+      error: 'Permission denied! To access the functionalities, go to the settings and authorize the use of the location!'
+    }
+  },
+
   fragments: {
-    errorPage: {
-      message: '',
+    noPermission: {
+      message: "We don't have permission to access your location, go to setting and enable it to use the app!",
     },
+    weather: {
+      humidity: "Humidity: ",
+      minTemp: "Today Min Temp: ",
+      maxTemp: "Today Max Temp: ",
+      message_error: "Service unavailable!",
+      feelsLike: "Feels like: ",
+    }
   },
 };

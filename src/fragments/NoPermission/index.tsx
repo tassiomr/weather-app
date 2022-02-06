@@ -17,7 +17,7 @@ export const NoPermissionFragment: React.FC = () => {
           textType="paragraph"
           textAlign="center"
           testID={constants.testsId.noPermission}
-          text="We don't have permission to access your location, go to setting and enable it to use the app!"
+          text={constants.fragments.noPermission.message}
         />
       </Container>
     </>

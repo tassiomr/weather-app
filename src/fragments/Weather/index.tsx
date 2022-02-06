@@ -44,22 +44,22 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
               <Text
                 testID={constants.testsId.weatherHumityText}
                 textType="paragraph"
-                text={`Humidity: ${weather.main.humidity}%`}
+                text={`${constants.fragments.weather.humidity} ${weather.main.humidity}%`}
               />
               <Text
                 testID={constants.testsId.weatherFeelsText}
                 textType="paragraph"
-                text={`Feels like: ${weather.main.feels_like.toFixed(0)}°`}
+                text={`${constants.fragments.weather.humidity}${weather.main.feels_like.toFixed(0)}°`}
               />
               <Text
                 testID={constants.testsId.weatherMaxTempText}
                 textType="paragraph"
-                text={`Today Max Temp: ${weather.main.temp_max.toFixed(0)}°`}
+                text={`${constants.fragments.weather.maxTemp}${weather.main.temp_max.toFixed(0)}°`}
               />
               <Text
                 testID={constants.testsId.weatherMinTempText}
                 textType="paragraph"
-                text={`Today Min Temp: ${weather.main.temp_min.toFixed(0)}°`}
+                text={`${constants.fragments.weather.minTemp}${weather.main.temp_min.toFixed(0)}°`}
               />
             </TextWeatherWrapper>
             <Image
@@ -75,8 +75,8 @@ export const WeatherFragment: React.FC<Props> = ({ weather }) => (
           <Text
             textType="paragraph"
             textAlign="center"
-            testID="unavailable-text"
-            text="Service unavailable!"
+            testID={constants.testsId.unavailable}
+            text={constants.fragments.weather.message_error}
           />
         </Unavailable>
       )}

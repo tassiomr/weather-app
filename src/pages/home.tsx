@@ -2,7 +2,11 @@ import * as React from 'react';
 import { Body } from '../components';
 import { useGeoLocation } from '../context/geolocation.context';
 import { useWeather } from '../context/weather.context';
-import { InitFragment, WeatherFragment } from '../fragments';
+import {
+  NoPermissionFragment,
+  WeatherFragment,
+  HourFragment,
+} from '../fragments';
 
 export const Home: React.FC = () => {
   const { weather, isLoading, getWeather } = useWeather();
@@ -16,10 +20,11 @@ export const Home: React.FC = () => {
 
   return (
     <Body isLoading={isLoading} onPress={getGeoLocation}>
+      <HourFragment />
       {weather ? (
         <WeatherFragment weather={weather} />
       ) : (
-        <InitFragment onPress={getGeoLocation} />
+        <NoPermissionFragment />
       )}
     </Body>
   );

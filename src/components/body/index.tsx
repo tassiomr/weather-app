@@ -17,8 +17,6 @@ type Props = {
 
 export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
   const theme = React.useContext(ThemeContext);
-  const [url, setUrl] = React.useState();
-  const day = useColorScheme();
 
   return (
     <ImageBackground source={require('../../img/bg.jpg')} style={{ flex: 1 }}>

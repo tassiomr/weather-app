@@ -1,13 +1,9 @@
 import * as React from 'react';
-import {
-  ActivityIndicator,
-  TouchableOpacity,
-  ImageBackground,
-  useColorScheme,
-} from 'react-native';
+import { TouchableOpacity, ImageBackground } from 'react-native';
 import { ThemeContext } from 'styled-components';
 import { Icon } from '..';
 import Theme from '../../configs/theme';
+import { Loading } from '../loading';
 import { Component, ButtonContainer } from './styles';
 
 type Props = {
@@ -21,7 +17,7 @@ export const Body: React.FC<Props> = ({ children, isLoading, onPress }) => {
   return (
     <ImageBackground source={require('../../img/bg.jpg')} style={{ flex: 1 }}>
       <Component>
-        {isLoading ? <ActivityIndicator size="large" /> : children}
+        {isLoading ? <Loading /> : children}
         <ButtonContainer>
           <TouchableOpacity testID="button-refresh" onPress={onPress}>
             <Icon

@@ -13,9 +13,7 @@ export const GeoLocationContext = React.createContext<GeoLocationContextData>(
 );
 
 export const GeoLocationProvider: React.FC = ({ children }) => {
-  const [geoLocation, setGeoLocation] = React.useState<GeoLocation | null>(
-    null
-  );
+  const [geoLocation, setGeoLocation] = React.useState<GeoLocation | null>(null);
 
   async function getPermission() {
     try {
@@ -31,7 +29,7 @@ export const GeoLocationProvider: React.FC = ({ children }) => {
 
       GeoLocationService.getGeoLocation(position => {
         setGeoLocation({
-          lat: position.coords.laitude,
+          lat: position.coords.latitude,
           log: position.coords.longitude,
         });
       });

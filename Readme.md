@@ -11,8 +11,18 @@
 
 ### Screenshots
 
-![N!Solid](screenshots/weather.png)![N!Solid](screenshots/unavailable.png)![N!Solid](screenshots/no_permission.png)
-
+<table>
+  <tr>
+     <td>Weather</td>
+     <td>Service Unavailable</td>
+     <td>No Permission</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/weather.png" width=200 height=410></td>
+    <td><img src="screenshots/unavailable.png" width=200 height=410></td>
+    <td><img src="screenshots/no_permission.png" width=200 height=410></td>
+  </tr>
+ </table>
 
 ### Pacotes adicionais
 
@@ -55,4 +65,4 @@
 
 * Certifique-se de ter instalado os pacotes de projeto. Rode no terminal o comando 'yarn'.
 
-[Download do APK] (https://github.com/tassiomr/weather-app/blob/develop/app-release.apk)
+[Download do APK](https://github.com/tassiomr/weather-app/blob/develop/app-release.apk)

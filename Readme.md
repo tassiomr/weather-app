@@ -1,5 +1,3 @@
-![N|Solid](app/assets/app-icon.png)
-
 # Weather App
 
 -OBS: Por motivos demonstrativos os arquivos .env e keystore estão salvos diretamente no repositório do projeo.
@@ -8,12 +6,12 @@
 
 - Desenvolva um aplicativo que consuma a localização atual do usuário e exiba na interface o endereço atual os dados climáticos da região e um botão para atualizar os dados.
  
- A api utilizada foi a OpenWeatherApi[https://openweathermap.org/api]
+ A api utilizada foi a [OpenWeatherApi](https://openweathermap.org/api)
 
 
 ### Screenshots
 
-![N!Solid](screenshots/weather/dark1.png)![N!Solid](screenshots/unavailable/dark2.png)![N!Solid](screenshots/no_permission/dark3.png)
+![N!Solid](screenshots/weather.png)![N!Solid](screenshots/unavailable.png)![N!Solid](screenshots/no_permission.png)
 
 
 ### Pacotes adicionais
@@ -57,4 +55,4 @@
 
 * Certifique-se de ter instalado os pacotes de projeto. Rode no terminal o comando 'yarn'.
 
-Download do APK (https://github.com/tassiomr/weather-app/blob/develop/app-release.apk)
+[Download do APK] (https://github.com/tassiomr/weather-app/blob/develop/app-release.apk)

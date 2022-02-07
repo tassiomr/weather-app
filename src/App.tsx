@@ -20,6 +20,6 @@ const App = () => {
       </WeatherProvider>
     </ThemeProvider>
   );
-};
+}
 
 export default App;

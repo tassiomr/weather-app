@@ -2,7 +2,7 @@ export type Theme = {
   background: string;
   accent: string;
   primary: string;
-};
+}
 
 export type TextAlign = 'center' | 'left' | 'right';
 

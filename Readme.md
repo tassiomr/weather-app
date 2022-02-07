@@ -13,7 +13,7 @@
 
 ### Screenshots
 
-![N!Solid](weather/dark1.png)![N!Solid](unavailable/dark2.png)![N!Solid](no_permission/dark3.png)
+![N!Solid](screenshots/weather/dark1.png)![N!Solid](screenshots/unavailable/dark2.png)![N!Solid](screenshots/no_permission/dark3.png)
 
 
 ### Pacotes adicionais
@@ -57,4 +57,4 @@
 
 * Certifique-se de ter instalado os pacotes de projeto. Rode no terminal o comando 'yarn'.
 
-Download do APK [apk-release.apk]
+Download do APK (https://github.com/tassiomr/weather-app/blob/develop/app-release.apk)

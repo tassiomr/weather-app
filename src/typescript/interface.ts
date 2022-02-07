@@ -1,8 +1,8 @@
-import { Theme, Sizes } from './type'
+import { Theme, Sizes } from './type';
 
 export interface IStyledComponentsProps {
-  theme: { 
+  theme: {
     colors: Theme;
     sizes: Sizes;
-  }
+  };
 }

@@ -1,11 +1,23 @@
 import styled from 'styled-components/native';
-import { IStyledComponentsProps } from '../../typescript/interface';
 
 export const Component = styled.View`
   flex: 1;
   width: 100%;
-  alignItems: center;
-  paddingLeft: 8px;
-  paddingRight: 8px;
-  backgroundColor: ${(props: IStyledComponentsProps) => props.theme.colors.background};
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+`;
+
+export const ButtonContainer = styled.View`
+  width: 100%;
+  position: absolute;
+  top: 0;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
+
+export const Button = styled.TouchableOpacity`
+  padding: 16px;
 `;
